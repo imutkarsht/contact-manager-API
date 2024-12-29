@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import contactRouter from "./routes/contacts.route.js";
 import errorHandler from "./middlewares/error.js";
 import connectDB from "./config/dbConnection.js";
+import userRouter from "./routes/users.route.js";
 
 dotenv.config();
 connectDB();
@@ -14,6 +15,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/contacts", contactRouter);
+app.use("/api/users", userRouter);
 app.use(errorHandler);
 
 app.listen(process.env.PORT, () =>
