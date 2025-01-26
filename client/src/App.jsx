@@ -7,14 +7,11 @@ function App() {
    useEffect(() => {
       const fetchContacts = async () => {
          try {
-            const token =
-               "" || localStorage.getItem("authToken"); 
+            const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJuYW1lIjoiam9obiIsImVtYWlsIjoiam9obmRvZUBnbWFpbC5jb20iLCJpZCI6IjY3NzI1MDMxOWFmMjJhNWE1MTYwNzI2NCJ9LCJpYXQiOjE3Mzc5MDk4MzUsImV4cCI6MTczNzkxMDQzNX0.89VfTcc4Kek1Grf_Cgn5yfNu0h534Gb0gXRTkzliXes" || localStorage.getItem("authToken");
 
-            const headers = {
-               Authorization: `Bearer ${token}`,
-            };
+            const headers = { Authorization: `Bearer ${token}` };
 
-            const response = await axios.get(`${API_URL}contacts`, {
+            const response = await axios.get(`${API_URL}/contacts`, {
                headers,
             });
 

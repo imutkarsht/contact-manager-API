@@ -13,7 +13,11 @@ const handleRegisterUser = expressAsyncHandler(async (req, res) => {
    const userAvailiable = await userModel.findOne({ email });
 
    if (userAvailiable) {
-      res.status(400);
+      res.status(400).json({
+         message: "User already registered!",
+         status: 400,
+      });
+
       throw new Error("User already registered!");
    }
 
